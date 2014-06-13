@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+    <message>
+        <forms>
+            <form id="1"/>
+            <form id="2"/>
+        </forms>
+        <body>
+            <![CDATA[
+            <title>Title</title>
+            <section>
+                kjhadfkljhaslkjvn
+                <p>
+                    asd;kjhjhdgkhdfkjg
+                </p>
+            </section>
+            ]]>
+        </body>
+    </message>
+</messages>
