@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio-database>
+    <cd>
+        <year>2003</year>
+        <title>Album</title>
+        <artist>Linkin Park</artist>
+        <studio>Roadrunner</studio>
+        <cover>http://pic.org/123.png</cover>
+        <tracks>
+            <track title="Track1"/>
+            <track title="Track2"/>
+            <track title="Track3"/>
+            <track title="Track4"/>
+            <track title="Track5"/>
+            <track title="Track6"/>
+        </tracks>
+    </cd>
+    <cd>
+        <year>2001</year>
+        <title>Album</title>
+        <artist>Metallica</artist>
+        <studio>Roadrunner</studio>
+        <cover>http://pic.org/123.png</cover>
+        <tracks>
+            <track title="Track1"/>
+            <track title="Track2"/>
+            <track title="Track3"/>
+            <track title="Track4"/>
+            <track title="Track5"/>
+            <track title="Track6"/>
+        </tracks>
+    </cd>
+    <cd>
+        <year>2011</year>
+        <title>Album</title>
+        <artist>Scorpions</artist>
+        <studio>Roadrunner</studio>
+        <cover>http://pic.org/123.png</cover>
+        <tracks>
+            <track title="Track1"/>
+            <track title="Track2"/>
+            <track title="Track3"/>
+            <track title="Track4"/>
+            <track title="Track5"/>
+            <track title="Track6"/>
+        </tracks>
+    </cd>
+    <cd>
+        <year>2008</year>
+        <title>Album</title>
+        <artist>Infected Mushroom</artist>
+        <studio>Roadrunner</studio>
+        <cover>http://pic.org/123.png</cover>
+        <tracks>
+            <track title="Track1"/>
+            <track title="Track2"/>
+            <track title="Track3"/>
+            <track title="Track4"/>
+            <track title="Track5"/>
+            <track title="Track6"/>
+        </tracks>
+    </cd>
+</audio-database>

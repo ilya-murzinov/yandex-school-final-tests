@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common" exclude-result-prefixes="exsl">
     <xsl:param name="id"/>
-
+    <xsl:output method="html" indent="no"/>
     <!-- Suppress default text output -->
     <xsl:template match="text()|@*">
     </xsl:template>
