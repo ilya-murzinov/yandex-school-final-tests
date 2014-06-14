@@ -50,7 +50,7 @@
     <xsl:template match="input">
         <xsl:param name="parsed-query"/>
         <xsl:variable name="name" select="string(./@name)"/>
-        <xsl:variable name="input" select="exsl:node-set($parsed-query/param[$name])"/>
+        <xsl:variable name="input" select="exsl:node-set($parsed-query/*[@name=$name])"/>
 
         <!-- If required field is absent -->
         <xsl:if test="count($input) = 0 and ./@required">
