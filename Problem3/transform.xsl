@@ -12,16 +12,9 @@
             </head>
             <body>
                 <script src="http://code.jquery.com/jquery-2.1.1.min.js"/>
-                <script>
-                    function validate() {
-                        for (field in document.getElementsByTagName("input")) {
-                            console.debug(field);
-                        }
-                        return false;
-                    }
-                </script>
-                <form method="get" onSubmit="return validate();">
-                    <fieldset id="form">
+                <script src="scripts.js"/>
+                <form name="form" method="get" onSubmit="return validate();">
+                    <fieldset>
                         <xsl:apply-templates/>
                     </fieldset>
                     <input type="submit"/>
@@ -36,7 +29,7 @@
                 <xsl:value-of select="@label"/>
             </label>
             <input>
-                <xsl:attribute name="id">
+                <xsl:attribute name="name">
                     <xsl:value-of select="@name"/>
                 </xsl:attribute>
                 <xsl:attribute name="type">
@@ -50,6 +43,20 @@
                         <xsl:value-of select="@max"/>
                     </xsl:attribute>
                 </xsl:if>
+                <xsl:if test="@type = 'text'">
+                    <xsl:attribute name="max-length">
+                        <xsl:value-of select="@max-length"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="regexp">
+                        <xsl:value-of select="@regexp"/>
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:if test="@required = 'true'">
+                    <xsl:attribute name="required"/>
+                </xsl:if>
+                <xsl:attribute name="value">
+                    <xsl:value-of select="@default"/>
+                </xsl:attribute>
             </input>
         </p>
     </xsl:template>

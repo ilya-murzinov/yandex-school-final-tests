@@ -4,21 +4,14 @@
 <meta charset="utf-8">
 </head>
 <body>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script><script>
-                    function validate() {
-                        for (field in document.getElementsByTagName("input")) {
-                            console.debug(field);
-                        }
-                        return false;
-                    }
-                </script>
-<form method="get" onSubmit="return validate();">
-<fieldset id="form">
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script><script src="scripts.js"></script>
+<form name="form" method="get" onSubmit="return validate();">
+<fieldset>
 <p>
-<label>text-box</label><input id="" type="text">
+<label>text-box</label><input name="text-box" type="text" max-length="10" regexp=".*lt$" required="" value="default">
 </p>
 <p>
-<label>number</label><input id="" type="number" min="0" max="5">
+<label>number</label><input name="number" type="number" min="" max="5" required="" value="3">
 </p>
 </fieldset>
 <input type="submit">
