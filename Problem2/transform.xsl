@@ -17,6 +17,14 @@
             <body>
             </body>
             <table border="1px solid">
+                <tr>
+                    <td>Title:</td>
+                    <td>Artist:</td>
+                    <td>Year:</td>
+                    <td>Tracks:</td>
+                    <td>Studio:</td>
+                    <td>Cover:</td>
+                </tr>
                 <xsl:choose>
                     <xsl:when test="$sort = 'year'">
                         <xsl:call-template name="sort">
