@@ -6,15 +6,14 @@
             <form id="2"/>
         </forms>
         <body>
-            <title>Title of the message</title>
-            <section>
-                <paragraph>
-                    text inside first paragraph
-                </paragraph>
-                <paragraph>
-                    text inside second paragraph
-                </paragraph>
-            </section>
+            <title>Title1</title>
+            <text>
+                <![CDATA[
+                    <p>
+                        Message1
+                    </p>
+                ]]>
+            </text>
         </body>
     </message>
     <message>
@@ -23,12 +22,14 @@
             <form id="3"/>
         </forms>
         <body>
-            <title>Another title</title>
-            <section>
-                <paragraph>
-                    text inside paragraph
-                </paragraph>
-            </section>
+            <title>Title2</title>
+            <text>
+                <![CDATA[
+                    <p>
+                        Message2
+                    </p>
+                ]]>
+            </text>
         </body>
     </message>
 </messages>

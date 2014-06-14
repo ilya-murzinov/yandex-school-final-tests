@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<form>
+    <input name="" type="text" regexp=".*" default="default" label="text-box" error="text error!"/>
+    <input name="" type="number" min="0" max="5" default="3" label="number" error="number error!"/>
+</form>

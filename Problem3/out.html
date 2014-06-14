@@ -1,0 +1,27 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script><script>
+                    function validate() {
+                        for (field in document.getElementsByTagName("input")) {
+                            console.debug(field);
+                        }
+                        return false;
+                    }
+                </script>
+<form method="get" onSubmit="return validate();">
+<fieldset id="form">
+<p>
+<label>text-box</label><input id="" type="text">
+</p>
+<p>
+<label>number</label><input id="" type="number" min="0" max="5">
+</p>
+</fieldset>
+<input type="submit">
+</form>
+</body>
+</html>

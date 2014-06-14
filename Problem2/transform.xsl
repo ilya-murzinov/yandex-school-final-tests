@@ -1,6 +1,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:dyn="http://exslt.org/dynamic"
                 xmlns:exsl="http://exslt.org/common" exclude-result-prefixes="exsl dyn">
+    <xsl:output method="html" indent="yes"/>
+
     <xsl:param name="year"/>
     <xsl:param name="sort">artist</xsl:param>
     <xsl:param name="order">ascending</xsl:param>
