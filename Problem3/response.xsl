@@ -16,6 +16,13 @@
         </xsl:call-template>
     </xsl:template>
 
+    <!--
+        Parse query string like "tex-box=default&number=3" into node-set:
+        <root>
+            <param name="text-box" value="default"/>
+            <param name="number" value="3"/>
+        </root>
+    -->
     <xsl:template name="parse-query">
         <xsl:param name="query"/>
         <xsl:variable name="params" select="exsl:node-set(str:split($query, '&amp;'))"/>
@@ -47,12 +54,18 @@
         </violations>
     </xsl:template>
 
+    <!--
+        For each "input" of the form checks
+        if corresponding param of query string
+        is present if it's required and valid
+        according to the input field definition in form.xml.
+    -->
     <xsl:template match="input">
         <xsl:param name="parsed-query"/>
         <xsl:variable name="name" select="string(./@name)"/>
         <xsl:variable name="input" select="exsl:node-set($parsed-query/*[@name=$name])"/>
 
-        <!-- If required field is absent -->
+        <!-- Check if required param is present in query string -->
         <xsl:if test="count($input) = 0 and ./@required">
             <violation>
                 <xsl:attribute name="field-name">
@@ -63,6 +76,8 @@
                 </xsl:attribute>
             </violation>
         </xsl:if>
+
+        <!-- Checks if param is valid -->
         <xsl:choose>
             <!-- Regexp validation is not implemented, checking just string max-length -->
             <xsl:when test="./@type='text'">

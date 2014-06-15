@@ -1,0 +1,2 @@
+Преобразование исходных данных в HTML-представление:
+xsltproc --output out.html transform.xsl source.xml

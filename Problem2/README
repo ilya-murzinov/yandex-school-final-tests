@@ -1,0 +1,4 @@
+Преобразование исходных данных в HTML-представление, примеры:
+xsltproc --param sort "'year'" --param order "'descending'" --output out.html transform.xsl audio-database.xml
+xsltproc --param year "'2008'" --param sort "'title'" --output out.html transform.xsl audio-database.xml
+xsltproc --param artist "'Aliquam ultrices'" --param sort "'studio'" --output out.html transform.xsl audio-database.xml

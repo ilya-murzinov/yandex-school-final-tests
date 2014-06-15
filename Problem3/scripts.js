@@ -1,3 +1,4 @@
+//Iterate through fields on the form and checking them according to there type and attribute
 function validate() {
     for (var i = 0; i < document.form.elements.length; i++) {
         var field = document.form.elements[i];

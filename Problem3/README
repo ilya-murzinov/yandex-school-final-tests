@@ -1,0 +1,10 @@
+Описание формы - form.xml.
+Реализованы только поля типа "text" и "number".
+
+Преобразование описания формы в HTML-представление:
+xsltproc --output out.html transform.xsl form.xml
+На форме работает клиентская валидация (см. script.js)
+
+Получение по описанию формы и описанию запроса списка ошибок валидации:
+xsltproc --param query "'text-box=default&number=52'" --output response.xml response.xsl form.xml
+Если ошибок нет, выводится пустой тег <violations/>

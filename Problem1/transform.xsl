@@ -13,14 +13,21 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="/messages/message/forms/form">
-        <xsl:if test="@id = $id">
+    <xsl:template match="/messages/message">
+        <xsl:if test="forms/form/@id = $id">
             <div class="title">
-                <xsl:value-of select="../../body/title" disable-output-escaping="yes"/>
+                <xsl:value-of select="body/title" disable-output-escaping="yes"/>
             </div>
             <div class="text">
-            <xsl:value-of select="../../body/text" disable-output-escaping="yes"/>
+                <xsl:apply-templates select="body/text/paragraph"/>
             </div>
         </xsl:if>
     </xsl:template>
+
+    <xsl:template match="paragraph">
+        <div class="paragraph">
+            <xsl:value-of select="." disable-output-escaping="yes"/>
+        </div>
+    </xsl:template>
+
 </xsl:stylesheet>

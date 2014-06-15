@@ -8,13 +8,19 @@
 
     <xsl:template match="/">
         <xsl:variable name="node-set">
-            <xsl:apply-templates select="root/project/page"/>
+            <xsl:variable name="current" select="/root/request/url/text()"/>
+            <xsl:apply-templates select="root/project/page">
+                <xsl:with-param name="current" select="$current"/>
+            </xsl:apply-templates>
         </xsl:variable>
         <xsl:call-template name="create-menu">
             <xsl:with-param name="menu" select="exsl:node-set($node-set)"/>
         </xsl:call-template>
     </xsl:template>
 
+    <!--
+        Generate menu presentation from node-set.
+    -->
     <xsl:template name="create-menu">
         <xsl:param name="menu"/>
         <html>
@@ -28,8 +34,18 @@
         </html>
     </xsl:template>
 
+    <!--
+        Transform "page" element into "item" element.
+    -->
     <xsl:template match="page">
+        <xsl:param name="current"/>
         <item>
+            <xsl:if test="$current = .">
+                <xsl:attribute name="is-current">
+                    <xsl:value-of select="string(true())"/>
+                </xsl:attribute>
+            </xsl:if>
+
             <title>
                 <xsl:value-of select="@name"/>
             </title>
@@ -39,14 +55,26 @@
         </item>
     </xsl:template>
 
+    <!--
+        Transform "item" element into
+
+        <div class="menu-item">
+        <a href="item/url">item/name</a>
+        </div>
+    -->
     <xsl:template match="item">
         <div class="menu-item">
-            <a>
-                <xsl:attribute name="href">
-                    <xsl:value-of select="./url"/>
-                </xsl:attribute>
+            <xsl:if test="./@is-current=false()">
+                <a>
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="./url"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="./title"/>
+                </a>
+            </xsl:if>
+            <xsl:if test="./@is-current=true()">
                 <xsl:value-of select="./title"/>
-            </a>
+            </xsl:if>
         </div>
     </xsl:template>
 

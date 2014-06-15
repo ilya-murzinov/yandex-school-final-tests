@@ -8,11 +8,8 @@
         <body>
             <title>Title1</title>
             <text>
-                <![CDATA[
-                    <p>
-                        Message1
-                    </p>
-                ]]>
+                <paragraph>Text inside first paragraph</paragraph>
+                <paragraph>Text inside second paragraph</paragraph>
             </text>
         </body>
     </message>
@@ -24,11 +21,11 @@
         <body>
             <title>Title2</title>
             <text>
-                <![CDATA[
-                    <p>
-                        Message2
-                    </p>
-                ]]>
+                <paragraph>
+                    <![CDATA[
+                        <b>Bold</b> <i>italic</i> <u>underlined</u> text inside paragraph
+                    ]]>
+                </paragraph>
             </text>
         </body>
     </message>
