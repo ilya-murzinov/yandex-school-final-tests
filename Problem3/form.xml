@@ -2,4 +2,10 @@
 <form>
     <input name="text-box" type="text" max-length="10" regexp=".*lt$" default="default" label="text-box" error="text error!" required="true"/>
     <input name="number" type="number" max="5" default="3" label="number" error="number error!" required="true"/>
+    <input name="select" type="select" label="select" error="select error!" required="true">
+        <option/>
+        <option>First option</option>
+        <option>Second option</option>
+    </input>
+    <input name="checkbox" type="checkbox" label="checkbox" checked="false" required="true"/>
 </form>

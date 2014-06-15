@@ -61,4 +61,27 @@
         </p>
     </xsl:template>
 
+    <xsl:template match="input[@type='select']">
+        <p>
+            <label>
+                <xsl:value-of select="@label"/>
+            </label>
+            <select>
+                <xsl:attribute name="name">
+                    <xsl:value-of select="@name"/>
+                </xsl:attribute>
+                <xsl:if test="@required = 'true'">
+                    <xsl:attribute name="required">true</xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="option"/>
+            </select>
+        </p>
+    </xsl:template>
+
+    <xsl:template match="option">
+        <option>
+            <xsl:value-of select="."/>
+        </option>
+    </xsl:template>
+
 </xsl:stylesheet>

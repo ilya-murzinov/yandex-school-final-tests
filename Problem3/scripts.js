@@ -2,7 +2,11 @@
 function validate() {
     for (var i = 0; i < document.form.elements.length; i++) {
         var field = document.form.elements[i];
-        if (field.type == "text") {
+        alert("Name: " + field.name + ", value: " + field.value);
+        if (field.getAttribute("required") == "true" && (field.value = "" || field.value == null)) {
+            alert("Field \"" + field.name + "\" is required");
+        }
+        if (field.getAttribute("type") == "text") {
             if (field.getAttribute("regexp") != null
                 && !new RegExp(field.getAttribute("regexp")).test(field.value)) {
                 if (field.getAttribute("error") != null) {
@@ -19,7 +23,7 @@ function validate() {
                     alert("Value in field \"" + field.name + "\" should be less than " + field.getAttribute("max-length") + " characters");
                 }
             }
-        } else if (field.type == "number") {
+        } else if (field.getAttribute("type") == "number") {
             var max = field.getAttribute("max");
             var min = field.getAttribute("min");
             if (field.value > max) {

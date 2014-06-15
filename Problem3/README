@@ -1,5 +1,5 @@
 Описание формы - form.xml.
-Реализованы только поля типа "text" и "number".
+Реализованы только поля типа "text", "number", "select" и "checkbox".
 
 Преобразование описания формы в HTML-представление:
 xsltproc --output out.html transform.xsl form.xml
