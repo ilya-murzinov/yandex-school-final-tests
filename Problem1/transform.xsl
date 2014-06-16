@@ -16,7 +16,7 @@
     <xsl:template match="/messages/message">
         <xsl:if test="forms/form/@id = $id">
             <div class="title">
-                <xsl:value-of select="body/title" disable-output-escaping="yes"/>
+                <xsl:value-of select="body/title"/>
             </div>
             <div class="text">
                 <xsl:apply-templates select="body/text/paragraph"/>
@@ -26,7 +26,7 @@
 
     <xsl:template match="paragraph">
         <div class="paragraph">
-            <xsl:value-of select="." disable-output-escaping="yes"/>
+            <xsl:value-of select="."/>
         </div>
     </xsl:template>
 

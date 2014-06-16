@@ -22,9 +22,7 @@
             <title>Title2</title>
             <text>
                 <paragraph>
-                    <![CDATA[
-                        <b>Bold</b> <i>italic</i> <u>underlined</u> text inside paragraph
-                    ]]>
+                    Another text
                 </paragraph>
             </text>
         </body>
