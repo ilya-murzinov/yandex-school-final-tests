@@ -41,9 +41,7 @@
         <xsl:param name="current"/>
         <item>
             <xsl:if test="$current = .">
-                <xsl:attribute name="is-current">
-                    <xsl:value-of select="string(true())"/>
-                </xsl:attribute>
+                <xsl:attribute name="is-current">true</xsl:attribute>
             </xsl:if>
 
             <title>
@@ -62,19 +60,20 @@
         <a href="item/url">item/name</a>
         </div>
     -->
-    <xsl:template match="item">
+    <xsl:template match="item[@is-current=true()]">
         <div class="menu-item">
-            <xsl:if test="./@is-current=false()">
-                <a>
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="./url"/>
-                    </xsl:attribute>
-                    <xsl:value-of select="./title"/>
-                </a>
-            </xsl:if>
-            <xsl:if test="./@is-current=true()">
+            <xsl:value-of select="./title"/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="item[@is-current=false()]">
+        <div class="menu-item">
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="./url"/>
+                </xsl:attribute>
                 <xsl:value-of select="./title"/>
-            </xsl:if>
+            </a>
         </div>
     </xsl:template>
 
