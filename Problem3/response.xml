@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <violations>
   <violation field-name="number"/>
+  <violation field-name="select" description="This field is required!"/>
+  <violation field-name="checkbox" description="This field is required!"/>
 </violations>

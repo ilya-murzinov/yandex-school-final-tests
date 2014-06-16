@@ -2,8 +2,7 @@
 function validate() {
     for (var i = 0; i < document.form.elements.length; i++) {
         var field = document.form.elements[i];
-        alert("Name: " + field.name + ", value: " + field.value);
-        if (field.getAttribute("required") == "true" && (field.value = "" || field.value == null)) {
+        if (field.getAttribute("required") == "true" && (field.value == "" || field.value == null)) {
             alert("Field \"" + field.name + "\" is required");
         }
         if (field.getAttribute("type") == "text") {
