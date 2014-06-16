@@ -1,6 +1,5 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:dyn="http://exslt.org/dynamic"
-                xmlns:exsl="http://exslt.org/common" exclude-result-prefixes="exsl dyn">
+                xmlns:exsl="http://exslt.org/common" exclude-result-prefixes="exsl">
     <xsl:output method="html" indent="yes"/>
 
     <xsl:param name="year"/>
@@ -27,30 +26,28 @@
                     <td>Studio:</td>
                     <td>Cover:</td>
                 </tr>
-                <xsl:choose>
-                    <xsl:when test="$sort = 'year'">
-                        <xsl:call-template name="sort">
-                            <xsl:with-param name="type" select="'number'"/>
-                        </xsl:call-template>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="sort">
-                            <xsl:with-param name="type" select="'text'"/>
-                        </xsl:call-template>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:call-template name="sort"/>
             </table>
         </html>
     </xsl:template>
 
     <xsl:template name="sort">
-        <xsl:param name="type"/>
         <xsl:variable name="tmp"
-                      select="exsl:node-set(/audio-database/cd[(year = $year or $year = '')
-                      and (artist = $artist or $artist = '')])"/>
-        <xsl:apply-templates select="$tmp">
-            <xsl:sort select="*[name() = $sort]" data-type="{$type}" order="{$order}"/>
-        </xsl:apply-templates>
+                      select="/audio-database/cd[(year = $year or $year = '')
+                      and (artist = $artist or $artist = '')]"/>
+        <xsl:choose>
+            <xsl:when test="$sort = 'year'">
+                <xsl:apply-templates select="$tmp">
+                    <xsl:sort select="*[name() = $sort]" data-type="number" order="{$order}"/>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="$tmp">
+                    <xsl:sort select="*[name() = $sort]" data-type="text" order="{$order}"/>
+                </xsl:apply-templates>
+            </xsl:otherwise>
+        </xsl:choose>
+
     </xsl:template>
 
     <!--This is used to display result-->
